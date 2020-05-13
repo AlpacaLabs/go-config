@@ -12,7 +12,7 @@ GOPRIVATE := github.com/AlpacaLabs
 
 # App env vars
 KAFKA_HOST ?= kafka
-DB_HOST ?= hermes-db
+DB_HOST ?= alpaca
 DB_NAME ?= alpaca
 DB_USER ?= alpaca
 DB_PASS ?= alpaca
