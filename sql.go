@@ -1,9 +1,6 @@
 package configuration
 
 import (
-	"database/sql"
-	"fmt"
-
 	flag "github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )
@@ -47,11 +44,4 @@ func LoadSQLConfig() SQLConfig {
 	c.Name = viper.GetString(flagForDBName)
 
 	return c
-}
-
-func (c SQLConfig) Connect() (*sql.DB, error) {
-	connectionString := fmt.Sprintf("user=%s password=%s host=%s dbname=%s sslmode=disable",
-		c.User, c.Pass, c.Host, c.Name)
-
-	return sql.Open("postgres", connectionString)
 }
