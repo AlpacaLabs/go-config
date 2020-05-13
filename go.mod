@@ -3,6 +3,7 @@ module github.com/AlpacaLabs/go-config
 go 1.14
 
 require (
+	github.com/smartystreets/goconvey v1.6.4
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.6.3
 	github.com/stretchr/testify v1.5.1 // indirect

@@ -20,11 +20,7 @@ type SQLConfig struct {
 }
 
 func LoadSQLConfig() SQLConfig {
-	c := SQLConfig{
-		Name: "postgres",
-		User: "postgres",
-		Pass: "postgres",
-	}
+	c := SQLConfig{}
 
 	flag.String(flagForDBUser, c.User, "DB user")
 	flag.String(flagForDBPass, c.Pass, "DB pass")
@@ -37,6 +33,8 @@ func LoadSQLConfig() SQLConfig {
 	viper.BindPFlag(flagForDBPass, flag.Lookup(flagForDBPass))
 	viper.BindPFlag(flagForDBHost, flag.Lookup(flagForDBHost))
 	viper.BindPFlag(flagForDBName, flag.Lookup(flagForDBName))
+
+	viper.AutomaticEnv()
 
 	c.User = viper.GetString(flagForDBUser)
 	c.Pass = viper.GetString(flagForDBPass)
